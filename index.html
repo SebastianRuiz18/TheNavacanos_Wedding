@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>John & Paulina | 20.06.2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="music-toggle" class="music-floating-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="enter-site-floating" class="enter-floating-btn hidden-btn">
+        <span class="btn-small-caps">VER MÁS</span>
+        <span class="btn-script">Detalles</span>
+    </button>
+
+    <div id="opening-overlay" class="opening-overlay">
+        
+        <div id="global-bg-spam" class="collage-bg-details hidden-bg">
+            <img src="img/intro-detail.png" alt="" class="bg-detail-img pos-1">
+            <img src="img/intro-detail2.png" alt="" class="bg-detail-img pos-2">
+            <img src="img/intro-detail3.png" alt="" class="bg-detail-img pos-3">
+            <img src="img/intro-detail4.png" alt="" class="bg-detail-img pos-4">
+            <img src="img/intro-detail2.png" alt="" class="bg-detail-img pos-5">
+            <img src="img/intro-detail.png" alt="" class="bg-detail-img pos-6">
+            <img src="img/intro-detail4.png" alt="" class="bg-detail-img pos-7">
+            <img src="img/intro-detail3.png" alt="" class="bg-detail-img pos-8">
+            <img src="img/intro-detail.png" alt="" class="bg-detail-img pos-9">
+            <img src="img/intro-detail2.png" alt="" class="bg-detail-img pos-10">
+            <img src="img/intro-detail4.png" alt="" class="bg-detail-img pos-11">
+            <img src="img/intro-detail3.png" alt="" class="bg-detail-img pos-12">
+        </div>
+
+        <div class="vertical-layout">
+            
+            <div id="envelope-stage" class="stage-container">
+                <div class="pre-open-text">
+                    <h1 class="main-names-intro">JOHN <span class="ampersand">&</span> PAULINA</h1>
+                    <p class="intro-date">20 . 06 . 2026</p>
+                </div>
+
+                <div class="envelope-wrapper" id="trigger-open">
+                    <img src="img/envelope-closed.png" class="envelope-img" alt="Sobre">
+                    <div class="wax-seal-btn fade-in-loop">ABRIR</div>
+                </div>
+            </div>
+
+            <div id="collage-content" class="collage-content hidden-content">
+
+                <div class="collage-row row-envelope">
+                    <img src="img/envelope-open.png" alt="Sobre Abierto" class="img-envelope">
+                </div>
+
+                <div class="collage-row row-card slide-in">
+                    <img src="img/invitation-card.png" alt="Invitación" class="img-card shadow-hard">
+                </div>
+
+                <div class="collage-row row-tickets slide-in delay-1">
+                    <div class="ticket-item ticket-1">
+                        <img src="img/dresscode_ticket.png" alt="Dress Code" class="ticket-img shadow-hard">
+                    </div>
+                    <div class="ticket-item ticket-2">
+                        <img src="img/elcielo_ticket.png" alt="El Cielo" class="ticket-img shadow-hard">
+                    </div>
+                    <div class="ticket-item ticket-3">
+                        <img src="img/rsvp-card.png" alt="RSVP Ticket" class="ticket-img shadow-hard">
+                    </div>
+                </div>
+
+                <div class="collage-row row-polaroids slide-in delay-2">
+                    <div class="polaroid-frame">
+                        <img src="https://images.pixieset.com/345237701/d708952a256340de3f37475e2cede8fc-large.jpeg" alt="Foto 1">
+                    </div>
+                    <div class="polaroid-frame">
+                        <img src="https://images.pixieset.com/345237701/578d088d241a7e510e74e1050afbd40e-large.jpeg" alt="Foto 2">
+                    </div>
+                    <div class="polaroid-frame">
+                        <img src="https://images.pixieset.com/345237701/b93a2fc56074ddcb184f906ffb1776d7-large.jpeg" alt="Foto 3">
+                    </div>
+                </div>
+
+                <div class="collage-row row-wax-seal slide-in delay-3" style="margin-top: 40px; margin-bottom: 120px;">
+                    <img src="img/wax-seal.png" alt="Sello" class="img-wax-seal">
+                </div>
+
+                </div>
+
+        </div>
+    </div>
+
+    <div id="main-website" class="main-website hidden-site">
+        <header class="hero-section">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="hero-video" poster="img/intro-couple.png">
+                    <source src="img/hero-video.mp4" type="video/mp4">
+                </video>
+                <div class="overlay"></div>
+            </div>
+            <div class="hero-content fade-in-up">
+                <p class="hero-subtitle">La Boda De</p>
+                <h1 class="main-title">JOHN <span class="ampersand-hero">&</span> PAULINA</h1>
+                <div class="hero-divider"></div>
+                <p class="hero-date uppercase">20 de Junio, 2026</p>
+            </div>
+            <div class="scroll-indicator"><i class="fas fa-chevron-down fade-in-loop"></i></div>
+        </header>
+
+        <section class="section bg-white framed-couple-section">
+            <div class="container">
+                <div class="framed-layout">
+                    <div class="framed-photo-wrapper fade-in-up">
+                        <div class="double-border-box">
+                            <img src="https://images.pixieset.com/345237701/20842f8f32f996a7e3248597ce3ce983-large.jpeg" alt="John y Paulina" class="framed-img">
+                        </div>
+                    </div>
+                    <div class="framed-text-content fade-in-up">
+                        <h2 class="script-date-full">20 de Junio en</h2>
+                        <h3 class="serif-location">EL CIELO</h3>
+                        <p class="small-year">2026</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="section story-section">
+            <div class="container">
+                <h2 class="section-title text-center script-heading big-title">Nuestra Historia</h2>
+                
+                <div class="story-timeline">
+                    <div class="story-row">
+                        <div class="story-image-container fade-in-up">
+                            <img src="https://images.pixieset.com/345237701/c9d6f13a2dc5f802fbcea62acbd60ec9-large.jpeg" alt="John y Paulina Inicio" class="story-img">
+                        </div>
+                        <div class="story-text-container fade-in-up delay-1">
+                            <h3 class="story-subtitle">El Inicio y la Distancia</h3>
+                            <p class="story-paragraph">
+                                Nos conocimos el 10 de junio del 2021 en Tijuana. Lo que comenzó como una simple amistad pronto se transformó en algo más, y el 5 de julio comenzamos a salir oficialmente.
+                            </p>
+                            <p class="story-paragraph">
+                                Poco después, iniciamos un noviazgo a distancia cuando Paulina se mudó a Nayarit. Durante un año, los viajes constantes demostraron que la distancia nunca fue un obstáculo para nosotros.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="story-row reverse-layout">
+                        <div class="story-image-container fade-in-up delay-2">
+                             <img src="https://images.pixieset.com/345237701/353ae2a426258435f696f119de0e4dfe-large.jpeg" alt="La Propuesta" class="story-img">
+                        </div>
+                        <div class="story-text-container fade-in-up delay-3">
+                            <h3 class="story-subtitle">El Sí</h3>
+                            <p class="story-paragraph">
+                                En febrero del 2024, John decidió mudarse para vivir juntos. El 26 de abril pidió oficialmente la mano de Paulina y, el 27 de junio, en el Hotel Xcaret, le propuso matrimonio.
+                            </p>
+                            <p class="story-paragraph">
+                                Finalmente, el 27 de agosto del 2024, nos casamos por el registro civil.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-footer text-center fade-in-up delay-4">
+                    <p class="closing-line">Y así comienza el para siempre.</p>
+                    <p class="signature-dark">John & Paulina</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="itinerary" class="section bg-beige itinerary-section">
+            <div class="container">
+                <h2 class="section-title text-center" style="margin-bottom: 50px;">ITINERARIO</h2>
+                <div class="itinerary-grid">
+                    <div class="itinerary-item">
+                        <img src="img/ceremonia-icon.png" alt="Ceremonia" class="itinerary-icon">
+                        <h3 class="itinerary-name">Ceremonia</h3>
+                        <p class="itinerary-time">1:30 pm</p>
+                    </div>
+                    <div class="itinerary-item">
+                        <img src="img/coctel-icon.png" alt="Coctel" class="itinerary-icon">
+                        <h3 class="itinerary-name">Coctel</h3>
+                        <p class="itinerary-time">3:30 pm</p>
+                    </div>
+                    <div class="itinerary-item">
+                        <img src="img/cena-icon.png" alt="Cena" class="itinerary-icon">
+                        <h3 class="itinerary-name">Cena</h3>
+                        <p class="itinerary-time">TBD</p>
+                    </div>
+                    <div class="itinerary-item">
+                        <img src="img/pastel-icon.png" alt="Pastel" class="itinerary-icon">
+                        <h3 class="itinerary-name">Pastel</h3>
+                        <p class="itinerary-time">TBD</p>
+                    </div>
+                    <div class="itinerary-item">
+                        <img src="img/baile-icon.png" alt="Baile" class="itinerary-icon">
+                        <h3 class="itinerary-name">Baile</h3>
+                        <p class="itinerary-time">TBD</p>
+                    </div>
+                    <div class="itinerary-item">
+                        <img src="img/despedida-icon.png" alt="Despedida" class="itinerary-icon">
+                        <h3 class="itinerary-name">Despedida</h3>
+                        <p class="itinerary-time">TBD</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="section info-section">
+            <div class="container">
+                <h2 class="section-title">INFORMACIÓN PARA INVITADOS</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="card-header">
+                            <img src="img/hotel-icon.png" alt="Alojamiento" class="card-icon-hotel">
+                            <h3>Alojamiento</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>El Valle de Guadalupe cuenta con una amplia variedad de hoteles boutique y estancias. Les recomendamos reservar con anticipación.</p>
+                            <div class="highlight-text">
+                                <a href="https://maps.app.goo.gl/zrTC3uVGkofbA4Qx7" target="_blank" class="contact-link">Encuentro Guadalupe<br></a>
+                                <a href="https://maps.app.goo.gl/4aQwHuMMQKSkh4fR7" target="_blank" class="contact-link">MIRA Earth<br></a>
+                                <a href="https://maps.app.goo.gl/6GXpb49QWVRLr3zq8" target="_blank" class="contact-link">Bruma<br></a>
+                                <a href="https://maps.app.goo.gl/LtbaZ6CZPGMxcxBP6" target="_blank" class="contact-link">Flores de Sal<br></a>
+                                <a href="https://maps.app.goo.gl/9qnTkfqb1hpP4L79A" target="_blank" class="contact-link">Hotel Boutique & Spa<br></a>
+                                <a href="https://maps.app.goo.gl/XEUNbM3R7XHXn9Fs8" target="_blank" class="contact-link">Andana</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-header">
+                            <img src="img/reception-icon.png" alt="Recepción" class="card-icon">
+                            <h3>Recepción</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>La ceremonia religiosa se llevará a cabo en:</p>
+                            <p ><a href="https://maps.app.goo.gl/wbNseTJnXvtTQbFv7" target="_blank" class="contact-link">El Cielo Resort</a><br>
+                            <p>La ceremonia comenzará puntualmente a la 1:30 PM. Les agradecemos llegar con 15 minutos de anticipación.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-header">
+                            <img src="img/transport-icon.png" alt="Transporte" class="card-icon">
+                            <h3>Transporte</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>El transporte público es limitado en la zona. Recomendamos rentar auto o usar servicios de transporte privado local para mayor comodidad.</p>
+                            <div class="highlight-text">
+                                Lomas travel<br>
+                                <a href="tel:+526461327874" class="contact-link">+52 (646) 132 7874</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="striped-section">
+                    <h3 class="striped-section-title">Detalles Adicionales</h3>
+                    <div class="details-flex-container">
+                        <div class="detail-box">
+                        <h3>Código de Vestimenta</h3>
+                        <p>Nos encantaría verlos lucir sus mejores galas para celebrar con nosotros. El código es:</p>
+                        
+                        <p class="cursive-detail">Formal & Black Tie</p>
+                        
+                        <p style="font-size: 0.9rem; margin-top: 10px; font-weight: 500;">
+                            Les pedimos amablemente evitar el color blanco y tonos claros.
+                        </p>
+                    </div>
+                        
+                        <div class="detail-box center-box">
+                            <img src="img/table-setting-icon.png" alt="Detalle" class="center-icon">
+                        </div>
+                        
+                        <div class="detail-box">
+                            <h3>Niños</h3>
+                            <p>Amamos a sus pequeños, pero debido a restricciones del lugar, nuestra celebración será:</p>
+                            <p class="cursive-detail">Solo Adultos</p>
+                            <p>Agradecemos su comprensión.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="registry" class="section registry-section">
+            <div class="container">
+                <div class="registry-editorial-grid">
+                    <div class="registry-col-text">
+                        <div class="registry-header-group">
+                            <h2 class="registry-title-main">
+                                MESA DE<br>REGALOS
+                            </h2>
+                            <img src="img/gift-icon.png" alt="Regalo" class="icon-gift-large">
+                        </div>
+
+                        <p class="registry-msg-text">
+                            Su presencia es nuestro mejor regalo.<br><br>
+                            Sin embargo, si desean tener un detalle con nosotros,
+                            agradecemos infinitamente su contribución a nuestra luna de miel.
+                        </p>
+                    </div>
+
+                    <div class="registry-col-card">
+                        <div class="zelle-card-frame">
+                            <div class="payment-option">
+                                <h3 class="zelle-heading">Zelle</h3>
+                                <p class="zelle-info">+1 (619) 727 3824</p>
+
+                                <div class="qr-display-box">
+                                    <img src="img/zelle-qr.png" alt="QR Zelle" class="qr-code-img">
+                                </div>
+                            </div>
+                            <div class="card-internal-divider"></div>
+                            <div class="payment-option">
+                                <h3 class="zelle-heading">Transferencia</h3>
+                                <p class="bank-name">5256 7842 9337 2495</p>
+                                <p class="bank-number">CitiBanamex</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rsvp" class="section bg-beige">
+            <div class="container narrow-container text-center">
+                <div id="rsvp-login-view" class="rsvp-editorial-card fade-in-up">
+                    <div class="rsvp-card-inner">
+                        <h2 class="rsvp-script-title">Rsvp</h2>
+                        <p class="rsvp-instruction-text">
+                            Hemos reservado un lugar especial para ti.<br>
+                            Por favor ingresa tu código personal:
+                        </p>
+                        <div class="input-wrapper-centered">
+                            <input type="text" id="rsvp-code-input" placeholder="CÓDIGO" class="rsvp-code-style">
+                        </div>
+                        <button id="rsvp-check-btn" class="editorial-btn dark">ENTRAR</button>
+                        <p id="rsvp-error-msg" style="display:none; color:#a85e5e; margin-top:15px; font-size: 0.8rem; font-family: 'Montserrat', sans-serif;">Código incorrecto, intenta de nuevo.</p>
+                    </div>
+                </div>
+                <div id="rsvp-form-view" class="rsvp-editorial-card rsvp-hidden">
+                    <div class="rsvp-card-inner">
+                        <h2 class="rsvp-script-title-small">Confirmación</h2>
+                        <p class="rsvp-deadline-text">Favor de confirmar antes del 20 de Mayo</p>
+                        <form id="rsvp-form" action="https://formsubmit.co/madebyslivermx@gmail.com" method="POST">
+                            <input type="hidden" name="_subject" value="Confirmación Boda John & Paulina">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <div id="dynamic-guests-container" class="dynamic-content-area"></div>
+                            <div class="common-fields">
+                                <h3 class="common-field-title">Mensaje para los Novios</h3>
+                                <textarea name="mensaje_pareja" class="rsvp-input-style" rows="2" placeholder="Escribe tus buenos deseos..."></textarea>
+                                <h3 class="common-field-title">Canción indispensable</h3>
+                                <input type="text" name="cancion_recomendada" class="rsvp-input-style" placeholder="Nombre de la canción / Artista">
+                            </div>
+                            <button type="submit" class="editorial-btn dark full-width" style="margin-top: 30px;">ENVIAR CONFIRMACIÓN</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="rsvp-success-msg" class="rsvp-editorial-card rsvp-hidden">
+                    <div class="rsvp-card-inner flex-center">
+                        <h3 class="success-script">¡Gracias!</h3>
+                        <p class="success-text">Hemos recibido tu confirmación.</p>
+                        <div class="success-divider"></div>
+                        <p class="success-subtext">Nos vemos el 20 de Junio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container text-center">
+                <h2 class="section-title">CONTACTO</h2>
+                <p class="contact-intro">
+                    Si tienen alguna duda o pregunta sobre la logística, hospedaje o el evento, no duden en escribirnos.
+                </p>
+                <div class="contact-box-framed">
+                    <div class="contact-wrapper">
+                        <div class="contact-item">
+                            <h3 class="contact-type">Email</h3>
+                            <a href="mailto:thenavacanos27@gmail.com" class="contact-link">THENAVACANOS27@gmail.com</a>
+                        </div>
+                        <div class="contact-vertical-line"></div>
+                        <div class="contact-item">
+                            <h3 class="contact-type">Teléfono</h3>
+                            <a href="tel:+526634878479" class="contact-link">+52 (663) 487 8479</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <h2 class="footer-names">JOHN <span class="footer-amp">&</span> PAULINA</h2>
+                <p class="footer-date">20 . 06 . 2026</p>
+                <div class="footer-divider"></div>
+                <a href="https://www.instagram.com/madebysliver/" target="_blank" class="footer-credit">
+                    MADE BY SLIVER
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
