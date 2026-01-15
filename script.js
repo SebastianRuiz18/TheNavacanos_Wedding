@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // NUEVO: Referencia al botón flotante (EL ÚNICO QUE USAMOS AHORA)
     const enterFloatingBtn = document.getElementById('enter-site-floating');
 
+    // NUEVO: Referencia al ticket RSVP clickeable en el collage
+    const rsvpTicketTrigger = document.getElementById('rsvp-ticket-trigger');
+
     let isMusicPlaying = false;
     let isOpened = false;
 
@@ -59,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500); 
     });
 
-    // --- TRANSICIÓN AL SITIO PRINCIPAL ---
+    // --- TRANSICIÓN AL SITIO PRINCIPAL (FUNCIÓN REUTILIZABLE) ---
     const goToSite = () => {
         // 1. Desvanecer Overlay
         overlay.style.opacity = '0';
@@ -94,7 +97,21 @@ document.addEventListener('DOMContentLoaded', () => {
         enterFloatingBtn.addEventListener('click', goToSite);
     }
     
-    // (NOTA: Ya no escuchamos al 'enter-site-btn' viejo porque lo borramos del HTML)
+    // --- NUEVO: ESCUCHAR CLICK EN EL TICKET RSVP ---
+    if(rsvpTicketTrigger) {
+        rsvpTicketTrigger.addEventListener('click', () => {
+            // 1. Ejecutar la transición al sitio principal
+            goToSite();
+
+            // 2. Esperar a que el sitio sea visible (1100ms es un poco más que el timeout de goToSite)
+            setTimeout(() => {
+                const rsvpSection = document.getElementById('rsvp');
+                if(rsvpSection) {
+                    rsvpSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 1100);
+        });
+    }
 
 
     // ============================================================

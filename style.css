@@ -10,14 +10,7 @@
     font-display: swap; 
 }
 
-@font-face { 
-    font-family: 'Sloop Script'; 
-    src: url('fonts/Sloop ScriptThree.woff2') format('woff2'), 
-         url('fonts/Sloop ScriptThree.woff') format('woff'); 
-    font-weight: normal; 
-    font-style: normal; 
-    font-display: swap; 
-}
+/* SLOOP SCRIPT ELIMINADO - USAMOS GOOGLE FONTS AHORA */
 
 :root {
     --bg-color: #fcfcf9;
@@ -38,7 +31,7 @@ body {
 .music-floating-btn {
     position: fixed; 
     bottom: 20px; 
-    left: 20px; /* ANTES ERA right: 20px */
+    left: 20px; 
     width: 45px; 
     height: 45px;
     border-radius: 50%; 
@@ -62,7 +55,7 @@ body {
     background-color: var(--text-black);
     color: #fff;
     border: none;
-    z-index: 10001; /* Encima de la música por si acaso */
+    z-index: 10001; 
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -74,14 +67,13 @@ body {
 .enter-floating-btn:active {
     transform: scale(0.95);
 }
-/* Estado oculto (inicial) */
+
 .hidden-btn {
     display: none !important;
     opacity: 0;
     pointer-events: none;
 }
 
-/* Animación para que aparezca suave */
 .fade-in-btn {
     display: flex !important;
     animation: fadeInBtn 1s forwards;
@@ -92,7 +84,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Estilos de texto dentro del botón */
 .btn-small-caps {
     font-family: 'The Seasons', serif;
     font-size: 0.55rem;
@@ -103,7 +94,8 @@ body {
 }
 
 .btn-script {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 1.4rem;
     font-weight: normal;
     text-transform: none;
@@ -137,18 +129,15 @@ body {
     min-height: 100vh;
 }
 
-/* =========================================
-   ESTRUCTURA GENERAL (Overlay)
-   ========================================= */
 .opening-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #f4f4f0; /* Color de fondo base */
+    background-color: #f4f4f0; 
     z-index: 9999;
-    overflow-y: auto; /* Permite scroll vertical */
+    overflow-y: auto; 
     overflow-x: hidden;
 }
 
@@ -159,78 +148,52 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
-    z-index: 2; /* Encima del fondo */
+    z-index: 2; 
 }
 
 /* =========================================
    FONDO DECORATIVO FULL SCREEN (FIX)
    ========================================= */
 .collage-bg-details {
-    position: fixed; /* TRUCO: Fijo a la pantalla, ignora contenedores flacos */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 0; /* Al fondo */
+    z-index: 0; 
     pointer-events: none;
     overflow: hidden;
-    opacity: 0; /* Empieza oculto */
+    opacity: 0; 
     transition: opacity 1.5s ease;
 }
 
-/* Esta clase se activa con el JS cuando se abre el sobre */
-.visible-content ~ .collage-bg-details, /* Si está al mismo nivel */
+.visible-content ~ .collage-bg-details, 
 .collage-content.visible-content + .collage-bg-details,
 .opening-overlay:has(.visible-content) .collage-bg-details {
     opacity: 1 !important;
 }
 
-/* Como no cambiamos JS, usamos un selector CSS inteligente:
-   Si .collage-content tiene la clase .visible-content, forzamos que el fondo se vea.
-   Nota: Si esto no funciona por estructura, el fondo se verá siempre.
-   Para que se vea SOLO al abrir, confío en que tu JS agrega 'visible-content' al div collage.
-*/
-
-/* FORZAR VISIBILIDAD SI EL COLLAGE ES VISIBLE (CSS TRICK) */
 .collage-content.visible-content ~ .collage-bg-details {
-   /* Esto dependería de la estructura, pero lo haremos más fácil abajo */
 } 
-/* REGLA SIMPLE: El JS le pone 'visible-content' a #collage-content.
-   Haremos que el fondo sea hijo del overlay pero fijo.
-   Agrega esto al JS para mayor seguridad o usa la animación CSS del collage
-*/
 
-
-/* ITEMS DEL FONDO (SPAM) - MÁS PEQUEÑOS Y DISTRIBUIDOS */
 .bg-detail-img {
     position: absolute;
     opacity: 0.2; 
-    /* CAMBIO CLAVE: Tamaño mucho más pequeño */
-    /* Mínimo 100px, ideal 12% del ancho, máximo 180px */
     width: clamp(100px, 12vw, 180px); 
     max-width: none;
     pointer-events: none;
 }
 
-/* --- Posiciones Distribuidas (Sin traslape) --- */
-
-/* Fila Superior (0-25% altura) */
 .pos-1 { top: 2%; left: 2%; transform: rotate(25deg); }
 .pos-2 { top: 5%; right: 3%; transform: rotate(-15deg); }
 .pos-3 { top: 18%; left: 30%; transform: rotate(-5deg); }
 .pos-4 { top: 12%; right: 28%; transform: rotate(10deg); }
-
-/* Fila Medio-Superior (25-50% altura) */
 .pos-5 { top: 35%; left: 5%; transform: rotate(-25deg); }
 .pos-6 { top: 32%; right: 10%; transform: rotate(15deg); }
-.pos-7 { top: 48%; left: 45%; transform: rotate(45deg); } /* Centro */
+.pos-7 { top: 48%; left: 45%; transform: rotate(45deg); }
 .pos-8 { top: 42%; right: 35%; transform: rotate(-10deg); }
-
-/* Fila Medio-Inferior (50-75% altura) */
 .pos-9 { top: 65%; left: 8%; transform: rotate(5deg); }
 .pos-10 { top: 62%; right: 5%; transform: rotate(-20deg); }
-
-/* Fila Inferior (75-100% altura) */
 .pos-11 { top: 88%; left: 25%; transform: rotate(15deg); }
 .pos-12 { top: 82%; right: 30%; transform: rotate(-35deg); }
 
@@ -265,7 +228,8 @@ body {
 }
 
 .ampersand { 
-    font-family: 'Sloop Script', cursive; 
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive; 
     font-size: .9em; 
     margin: 0 5px; 
     text-transform: none;
@@ -313,7 +277,6 @@ body {
    ========================================= */
 .collage-content {
     width: 100%;
-    /* Mantiene el contenido centrado */
     display: flex; 
     flex-direction: column; 
     align-items: center;
@@ -321,28 +284,19 @@ body {
     padding-top: 20px;
     opacity: 0; 
     display: none; 
-    z-index: 5; /* Encima del fondo fijo */
+    z-index: 5; 
 }
 
-/* Animación de entrada cuando el JS agrega la clase */
 .visible-content { 
     display: flex !important; 
     opacity: 1; 
     transition: opacity 1s; 
 }
 
-/* HACK CSS: Cuando .visible-content aparece, hacemos visible el fondo */
-/* Esto requiere que el JS ponga la clase .visible-content al div collage-content */
-/* Y usaremos animación para mostrar el fondo */
-
 #collage-content.visible-content ~ #global-bg-spam,
 .opening-overlay:has(.visible-content) #global-bg-spam {
-    opacity: 1; /* Se hace visible el fondo */
+    opacity: 1; 
 }
-/* Si el navegador es viejo y no soporta :has, el fondo simplemente no se verá o se verá siempre
-   según lo definas. Para seguridad, puedes poner opacity: 1 en .collage-bg-details por defecto 
-   si no te importa que se vea detrás del sobre cerrado, o ajustarlo. */
-
 
 .shadow-hard { filter: drop-shadow(0 10px 25px rgba(0,0,0,0.18)); }
 
@@ -353,21 +307,18 @@ body {
     position: relative;
 }
 
-/* 1. SOBRE ABIERTO */
 .row-envelope { z-index: 1; margin-bottom: -120px; }
 .img-envelope { width: 90%; max-width: 380px; }
 
-/* 2. INVITACIÓN */
 .row-card { z-index: 2; margin-bottom: 25px; transform: rotate(-1deg); }
 .img-card { width: 85%; max-width: 340px; border-radius: 2px; }
 
-/* 3. TICKETS */
 .row-tickets {
     z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px; /* Gap más pequeño en celular para que quepan mejor */
+    gap: 10px; 
     padding: 0 2%;
     margin-top: 20px;
     margin-bottom: 30px;
@@ -376,15 +327,8 @@ body {
 }
 
 .ticket-item { 
-    /* --- MEDIDAS PARA CELULAR (PEQUEÑAS) --- */
-    
-    /* Base ideal de 110px */
     flex: 1 1 110px; 
-    
-    /* Mínimo pequeño para que no se fuercen a una sola columna */
     min-width: 150px; 
-    
-    /* Máximo controlado para que no se vean gigantes en móvil */
     max-width: 250px; 
 }
 
@@ -394,28 +338,21 @@ body {
     display: block; 
 }
 
-/* Rotaciones (Se mantienen igual) */
-.ticket-1 { transform: rotate(-4deg) translateY(5px); z-index: 3;}
-.ticket-2 { transform: rotate(2deg) translateY(-8px); z-index: 4; }
-.ticket-3 { transform: rotate(-3deg) translateY(3px); z-index: 3; }
+.ticket-1 { transform: rotate(86deg) translateY(5px); z-index: 3; -webkit-transform: rotate(86deg) translateY(5px); -moz-transform: rotate(86deg) translateY(5px); -ms-transform: rotate(86deg) translateY(5px); -o-transform: rotate(86deg) translateY(5px); }
+.ticket-2 { transform: rotate(92deg) translateY(-8px); z-index: 4; -webkit-transform: rotate(92deg) translateY(-8px); -moz-transform: rotate(92deg) translateY(-8px); -ms-transform: rotate(92deg) translateY(-8px); -o-transform: rotate(92deg) translateY(-8px); }
+.ticket-3 { transform: rotate(87deg) translateY(3px); z-index: 3; -webkit-transform: rotate(87deg) translateY(3px); -moz-transform: rotate(87deg) translateY(3px); -ms-transform: rotate(87deg) translateY(3px); -o-transform: rotate(87deg) translateY(3px); }
 
-/* --- MEDIDAS PARA COMPUTADORA (GRANDES) --- */
 @media (min-width: 768px) {
     .row-tickets {
-        gap: 20px; /* Regresamos al gap amplio en PC */
+        gap: 20px; 
     }
-
     .ticket-item {
-        /* Aquí regresamos a los valores grandes que te gustaban en PC */
         flex: 1 1 220px; 
         min-width: 200px; 
         max-width: 350px; 
     }
 }
 
-/* 4. POSTALES (Ocultas en tu código) */
-
-/* 5. SELLO */
 .row-wax-seal { 
     z-index: 5; 
     justify-content: center; 
@@ -423,7 +360,6 @@ body {
 }
 .img-wax-seal { width: 100px; transform: rotate(-15deg); }
 
-/* 6. POLAROIDS */
 .row-polaroids {
     z-index: 6;
     display: flex;
@@ -451,7 +387,6 @@ body {
 .polaroid-frame:nth-child(2) { transform: rotate(3deg); }
 .polaroid-frame:nth-child(3) { transform: rotate(-2deg); }
 
-/* BOTÓN */
 .relative-wrapper { position: relative; display: inline-block; }
 .circle-btn {
     width: 110px; height: 110px; border-radius: 50%; border: none; 
@@ -463,11 +398,8 @@ body {
     position: absolute; z-index: 100 !important;
 }
 .circle-btn:active { transform: scale(0.95); }
-.btn-small-caps { font-family: 'The Seasons', serif; font-size: 0.6rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1; margin-bottom: 2px; }
-.btn-script { font-family: 'Sloop Script', cursive; font-size: 1.8rem; font-weight: normal; text-transform: none; line-height: 0.8; }
 .sticker-btn-center { bottom: -40px; left: 50%; transform: translateX(-50%); }
 
-/* ANIMACIONES */
 .slide-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
 .visible-content .slide-in { opacity: 1; transform: translateY(0); }
 .visible-content .row-card { transform: rotate(-1deg); }
@@ -479,12 +411,7 @@ body {
 .delay-4 { transition-delay: 1.1s; }
 .delay-5 { transition-delay: 1.4s; }
 
-/* RESPONSIVE: Desktop */
 @media (min-width: 768px) {
-    .row-tickets { gap: 20px; }
-    .ticket-item { max-width: 200px; }
-    
-    /* Ajuste para que el contenido no se vea tan pequeño en monitores gigantes */
     .collage-content {
         max-width: 1000px;
         margin: 0 auto;
@@ -509,7 +436,6 @@ body {
     display: none; 
 }
 
-/* HERO SECTION */
 .hero-section { 
     position: relative; 
     height: 100vh; 
@@ -557,7 +483,8 @@ body {
 }
 
 .ampersand-hero { 
-    font-family: 'Sloop Script', cursive; 
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive; 
     font-size: 1.2em; 
     text-transform: none; 
 }
@@ -581,7 +508,8 @@ body {
     letter-spacing: 2px; 
     margin-bottom: 10px; 
     opacity: 0.95; 
-    font-family: 'Sloop Script', cursive; 
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive; 
     font-weight: normal;
 }
 
@@ -614,7 +542,6 @@ body {
     color: #fff;
 }
 
-/* SECTIONS */
 .section { 
     padding: 100px 20px; 
 }
@@ -654,14 +581,12 @@ body {
 }
 
 .script-heading { 
-    font-family: 'Sloop Script', cursive; 
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive; 
     font-weight: normal;
 }
 
-/* =========================================
-   FRAMED COUPLE SECTION (ÚNICOS CAMBIOS)
-   ========================================= */
-
+/* Framed Couple Section */
 .framed-couple-section { 
     min-height: 90vh; 
     display: flex; 
@@ -685,14 +610,13 @@ body {
     padding: 20px; 
 }
 
-/* 👉 EL TAMAÑO AHORA SE CONTROLA AQUÍ */
 .double-border-box { 
     position: relative; 
     padding: 8px; 
     border: 1px solid var(--text-black); 
     display: inline-block; 
     width: 90vw;
-    max-width: 420px; /* móvil */
+    max-width: 420px; 
 }
 
 .double-border-box::after { 
@@ -706,7 +630,6 @@ body {
     pointer-events: none; 
 }
 
-/* 👉 LA IMAGEN YA NO LIMITA EL TAMAÑO */
 .framed-img { 
     display: block; 
     width: 100%; 
@@ -725,7 +648,8 @@ body {
 }
 
 .script-date-full { 
-    font-family: 'Sloop Script', cursive; 
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive; 
     font-size: 4rem; 
     line-height: 1; 
     margin-bottom: 10px; 
@@ -746,12 +670,9 @@ body {
     letter-spacing: 5px; 
 }
 
-/* =========================================
-   STORY SECTION (REDISEÑADO)
-   ========================================= */
-
+/* Story Section */
 .story-section {
-    background-color: #fcfcf9; /* Fondo limpio para que resalten las fotos */
+    background-color: #fcfcf9; 
     padding-bottom: 100px;
 }
 
@@ -763,28 +684,25 @@ body {
 .story-timeline {
     display: flex;
     flex-direction: column;
-    gap: 60px; /* Espacio entre los bloques principales */
+    gap: 60px; 
     max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Filas de contenido */
 .story-row {
     display: flex;
-    flex-direction: column; /* Móvil: Foto arriba, texto abajo */
+    flex-direction: column; 
     align-items: center;
     gap: 30px;
 }
 
-/* Contenedor de Imagen */
 .story-image-container {
     width: 100%;
     max-width: 450px;
-    height: 500px; /* Altura fija para uniformidad */
+    height: 500px; 
     position: relative;
 }
 
-/* Marco doble para las fotos (opcional, se ve elegante) */
 .story-image-container::after {
     content: '';
     position: absolute;
@@ -797,17 +715,16 @@ body {
 .story-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la foto llene el espacio sin deformarse */
+    object-fit: cover; 
     display: block;
     position: relative;
     z-index: 1;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* Contenedor de Texto */
 .story-text-container {
     max-width: 450px;
-    text-align: center; /* Móvil: Centrado */
+    text-align: center; 
     padding: 20px;
 }
 
@@ -826,7 +743,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Cierre y Firma */
 .story-footer {
     margin-top: 80px;
 }
@@ -839,34 +755,32 @@ body {
 }
 
 .signature-dark {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 3.5rem;
     color: var(--text-black);
     font-weight: normal;
 }
 
-/* --- RESPONSIVO ESCRITORIO --- */
 @media (min-width: 900px) {
     .story-row {
-        flex-direction: row; /* Lado a lado */
+        flex-direction: row; 
         align-items: center;
         justify-content: space-between;
         gap: 60px;
     }
 
     .story-text-container {
-        text-align: left; /* Texto alineado a la izquierda en PC */
+        text-align: left; 
         padding: 0;
     }
 
-    /* Invierte el orden para el segundo bloque */
     .reverse-layout {
         flex-direction: row-reverse;
     }
     
-    /* Ajuste para el marco en el layout invertido */
     .reverse-layout .story-image-container::after {
-         left: -10px; right: 10px; /* Mueve el marco al otro lado */
+         left: -10px; right: 10px; 
     }
 }
 
@@ -900,7 +814,8 @@ body {
 }
 
 .itinerary-name { 
-    font-family: 'Sloop Script', cursive; 
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive; 
     font-size: 2.8rem; 
     line-height: 1; 
     color: var(--text-black); 
@@ -920,17 +835,12 @@ body {
     text-align: center; 
 }
 
-/* =========================================
-   SECCIÓN RSVP (REDISEÑO EDITORIAL)
-   ========================================= */
-
-/* Ocultar vistas */
+/* RSVP */
 .rsvp-hidden { display: none !important; }
 
-/* Tarjeta Principal (Estilo Papelería) */
 .rsvp-editorial-card {
     background-color: #fff;
-    padding: 15px; /* Espacio para el borde exterior */
+    padding: 15px; 
     margin-top: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.05);
     max-width: 550px;
@@ -938,9 +848,8 @@ body {
     margin-right: auto;
 }
 
-/* El marco doble interno */
 .rsvp-card-inner {
-    border: 1px solid var(--text-black); /* Borde fino negro */
+    border: 1px solid var(--text-black); 
     padding: 50px 30px;
     position: relative;
     height: 100%;
@@ -949,18 +858,17 @@ body {
     justify-content: center;
 }
 
-/* Decoración extra: esquinas internas (opcional, si quieres más detalle) */
 .rsvp-card-inner::after {
     content: '';
     position: absolute;
     top: 4px; left: 4px; right: 4px; bottom: 4px;
-    border: 1px solid #e5e5e5; /* Borde muy sutil interno */
+    border: 1px solid #e5e5e5; 
     pointer-events: none;
 }
 
-/* --- ESTILOS VISTA LOGIN --- */
 .rsvp-script-title {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 4.5rem;
     line-height: 0.8;
     margin-bottom: 20px;
@@ -1002,9 +910,9 @@ body {
     justify-content: center;
 }
 
-/* --- ESTILOS VISTA FORMULARIO --- */
 .rsvp-script-title-small {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 3rem;
     line-height: 1;
     margin-bottom: 10px;
@@ -1020,7 +928,6 @@ body {
     color: #888;
 }
 
-/* Bloque de Invitado */
 .guest-block {
     text-align: left;
     margin-bottom: 40px;
@@ -1033,7 +940,8 @@ body {
 }
 
 .guest-counter-title {
-    font-family: 'Sloop Script', cursive; /* Cambio a cursiva para elegancia */
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive; 
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: var(--text-black);
@@ -1042,7 +950,6 @@ body {
     line-height: 0.8;
 }
 
-/* Inputs del formulario */
 .input-label {
     display: block;
     font-family: 'The Seasons', serif;
@@ -1057,7 +964,7 @@ body {
     padding: 12px 15px;
     margin-bottom: 20px;
     border: 1px solid #d4d4d4;
-    background-color: #fcfcf9; /* Fondo beige muy sutil */
+    background-color: #fcfcf9; 
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     color: var(--text-black);
@@ -1070,7 +977,6 @@ body {
     background-color: #fff;
 }
 
-/* Campos Comunes */
 .common-fields {
     margin-top: 10px;
     padding-top: 20px;
@@ -1088,7 +994,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Botón */
 .editorial-btn {
     background: var(--text-black);
     color: #fff;
@@ -1111,7 +1016,6 @@ body {
     width: 100%;
 }
 
-/* --- ESTILOS MENSAJE ÉXITO --- */
 .flex-center {
     display: flex;
     flex-direction: column;
@@ -1120,7 +1024,8 @@ body {
 }
 
 .success-script {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 5rem;
     line-height: 0.8;
     margin-bottom: 20px;
@@ -1147,48 +1052,33 @@ body {
     text-transform: uppercase;
 }
 
-/* MEDIA QUERIES */
 @media (min-width: 900px) {
-.itinerary-grid {
-grid-template-columns: repeat(6, 1fr);
-gap: 40px;
-}
-.itinerary-icon { 
-    width: 100px; 
-    height: 100px; 
-}
+    .itinerary-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px;
+    }
+    .itinerary-icon { 
+        width: 100px; 
+        height: 100px; 
+    }
 }
 @media (min-width: 1024px) {
-.framed-layout {
-flex-direction: row;
-gap: 120px;
-}
-.framed-img { 
-    max-width: 450px; 
-}
+    .framed-layout {
+    flex-direction: row;
+    gap: 120px;
+    }
+    .framed-img { 
+        max-width: 450px; 
+    }
 
+    .script-date-full { 
+        font-size: 6rem; 
+    }
 
-.script-date-full { 
-    font-size: 6rem; 
+    .serif-location { 
+        font-size: 3.5rem; 
+    }
 }
-
-.serif-location { 
-    font-size: 3.5rem; 
-}
-
-.story-vibe-section { 
-    padding: 160px 0; 
-}
-
-.story-overlay-box { 
-    padding: 80px 60px; 
-    width: 70%; 
-}
-}
-
-/* =========================================
-   SECCIÓN: INFORMACIÓN PARA INVITADOS (ALINEADA)
-   ========================================= */
 
 .info-section {
     background-color: #f4f4f0;
@@ -1200,28 +1090,24 @@ gap: 120px;
     margin-bottom: 70px;
 }
 
-/* GRID PRINCIPAL */
 .info-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Móvil: 1 columna */
+    grid-template-columns: 1fr; 
     gap: 40px;
     margin-bottom: 100px;
 }
 
-/* TARJETAS */
 .info-card {
     background: #fff;
     padding: 40px 30px;
     border: 1px solid #d4d4d4;
     position: relative;
-    /* Flex para asegurar alturas iguales si el contenido varía */
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%; 
 }
 
-/* Efecto doble borde */
 .info-card::after {
     content: '';
     position: absolute;
@@ -1236,12 +1122,10 @@ gap: 120px;
     width: 100%;
 }
 
-/* --- AQUÍ ESTÁ EL TRUCO DE ALINEACIÓN --- */
 .card-icon {
-    /* Hacemos la foto más grande como pediste */
     width: 100px; 
-    height: 100px; /* ALTO FIJO: Esto evita que se desalineen los textos */
-    object-fit: contain; /* Asegura que la imagen no se recorte fea */
+    height: 100px; 
+    object-fit: contain; 
     margin-bottom: 20px;
     display: block;
     margin-left: auto;
@@ -1250,10 +1134,9 @@ gap: 120px;
 }
 
 .card-icon-hotel {
-    /* Hacemos la foto más grande como pediste */
     width: 200px; 
-    height: 100px; /* ALTO FIJO: Esto evita que se desalineen los textos */
-    object-fit: contain; /* Asegura que la imagen no se recorte fea */
+    height: 100px; 
+    object-fit: contain; 
     margin-bottom: 20px;
     display: block;
     margin-left: auto;
@@ -1261,14 +1144,14 @@ gap: 120px;
     opacity: 0.85;
 }
 
-
 .card-header h3 {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 3rem;
     font-weight: normal;
     margin: 0;
     line-height: 1;
-    min-height: 3rem; /* Reserva espacio para el título por si alguno es muy largo */
+    min-height: 3rem; 
 }
 
 .card-body {
@@ -1282,7 +1165,6 @@ gap: 120px;
     margin-bottom: 15px;
 }
 
-/* Estilos de enlaces y listas */
 .map-link {
     color: var(--text-black);
     text-decoration: underline;
@@ -1297,10 +1179,6 @@ gap: 120px;
     text-transform: uppercase;
     line-height: 2;
 }
-
-/* =========================================
-   SECCIÓN DE DETALLES (STRIPED)
-   ========================================= */
 
 .striped-section {
     position: relative;
@@ -1319,7 +1197,8 @@ gap: 120px;
 }
 
 .striped-section-title {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 3.5rem;
     margin-bottom: 50px;
     font-weight: normal;
@@ -1350,10 +1229,11 @@ gap: 120px;
 }
 
 .detail-box .cursive-detail {
-    font-family: 'Sloop Script', cursive;
-    font-size: 2.5rem; /* Ahora sí cambiará */
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.5rem; 
     margin: 15px 0;
-    line-height: 1.2; /* Recomendado para fuentes script grandes */
+    line-height: 1.2; 
 }
 
 .center-icon {
@@ -1361,28 +1241,19 @@ gap: 120px;
     opacity: 0.7;
 }
 
-/* =========================================
-   REGISTRY / MESA DE REGALOS
-   ========================================= */
-
 .registry-section {
     background-color: #fff;
     padding-bottom: 120px;
 }
 
-/* GRID */
 .registry-editorial-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 60px;
     max-width: 1000px;
     margin: 0 auto;
-    align-items: center; /* Alineación vertical centrada */
+    align-items: center; 
 }
-
-/* =========================================
-   COLUMNA TEXTO
-   ========================================= */
 
 .registry-col-text {
     padding: 0 20px;
@@ -1420,10 +1291,6 @@ gap: 120px;
     margin: 0 auto;
 }
 
-/* =========================================
-   COLUMNA TARJETA (MIXTA)
-   ========================================= */
-
 .registry-col-card {
     display: flex;
     justify-content: center;
@@ -1435,7 +1302,7 @@ gap: 120px;
     padding: 50px 40px;
     text-align: center;
     position: relative;
-    max-width: 400px; /* Un poco más ancho para los números */
+    max-width: 400px; 
     width: 100%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
@@ -1448,9 +1315,9 @@ gap: 120px;
     pointer-events: none;
 }
 
-/* Títulos (Zelle / Transferencia) */
 .zelle-heading {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 3.5rem;
     font-weight: normal;
     margin-bottom: 5px;
@@ -1458,7 +1325,6 @@ gap: 120px;
     color: var(--text-black);
 }
 
-/* Info Gral */
 .zelle-info {
     font-family: 'The Seasons', serif;
     font-size: 1.1rem;
@@ -1467,7 +1333,6 @@ gap: 120px;
     color: var(--text-black);
 }
 
-/* QR Box */
 .qr-display-box {
     width: 160px;
     height: 160px;
@@ -1484,7 +1349,6 @@ gap: 120px;
     display: block;
 }
 
-/* DIVISOR INTERNO */
 .card-internal-divider {
     width: 100%;
     height: 1px;
@@ -1493,7 +1357,6 @@ gap: 120px;
     position: relative;
 }
 
-/* Detalles Banco */
 .bank-name {
     font-family: 'The Seasons', serif;
     font-size: 1rem;
@@ -1512,10 +1375,6 @@ gap: 120px;
     font-weight: 400;
 }
 
-/* =========================================
-   DESKTOP
-   ========================================= */
-
 @media (min-width: 900px) {
 
     .registry-editorial-grid {
@@ -1529,10 +1388,9 @@ gap: 120px;
     }
 
     .registry-header-group {
-        align-items: center; /* Mantiene icono centrado al titulo */
+        align-items: center; 
     }
     
-    /* Alineamos el texto a la izquierda en PC */
     .registry-msg-text {
         margin: 0; 
         text-align: left;
@@ -1544,11 +1402,6 @@ gap: 120px;
     }
 
 }
-
-
-/* =========================================
-   SECCIÓN: CONTACTO
-   ========================================= */
 
 .contact-section {
     background-color: #fff;
@@ -1566,17 +1419,15 @@ gap: 120px;
     line-height: 1.6;
 }
 
-/* --- CUADRO DOBLE BORDE --- */
 .contact-box-framed {
-    background-color: #fcfcf9; /* Fondo beige claro */
+    background-color: #fcfcf9; 
     border: 1px solid #d4d4d4;
     padding: 60px 20px;
     position: relative;
-    max-width: 800px;
+    max-width: 1000px; /* ANTES ERA 800px, AHORA 1000px PARA QUE NO SE APRIETEN */
     margin: 0 auto;
 }
 
-/* El efecto del segundo borde desplazado */
 .contact-box-framed::after {
     content: '';
     position: absolute;
@@ -1585,15 +1436,14 @@ gap: 120px;
     pointer-events: none;
 }
 
-/* Contenedor Flex para los items (Dentro del cuadro) */
 .contact-wrapper {
     display: flex;
-    flex-direction: column; /* Móvil: Columna */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     gap: 50px;
     position: relative;
-    z-index: 2; /* Para estar encima del borde */
+    z-index: 2; 
 }
 
 .contact-item {
@@ -1602,7 +1452,6 @@ gap: 120px;
     align-items: center;
 }
 
-/* Iconos */
 .contact-icon-fa {
     font-size: 1.8rem;
     color: var(--text-black);
@@ -1610,16 +1459,15 @@ gap: 120px;
     opacity: 0.7;
 }
 
-/* Títulos */
 .contact-type {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 2.5rem;
     font-weight: normal;
     margin-bottom: 10px;
     line-height: 1;
 }
 
-/* Links */
 .contact-link {
     font-family: 'The Seasons', serif;
     font-size: 1.1rem;
@@ -1628,23 +1476,21 @@ gap: 120px;
     letter-spacing: 1px;
     border-bottom: 1px solid transparent;
     transition: border-color 0.3s;
+    
+    /* AGREGA ESTO: */
+    white-space: nowrap; 
 }
 
 .contact-link:hover {
     border-bottom: 1px solid var(--text-black);
 }
 
-/* Línea Divisoria */
 .contact-vertical-line {
     display: none; 
     width: 1px;
     height: 80px;
     background-color: #d4d4d4;
 }
-
-/* =========================================
-   FOOTER
-   ========================================= */
 
 .site-footer {
     background-color: var(--text-black);
@@ -1668,10 +1514,11 @@ gap: 120px;
 }
 
 .footer-amp {
-    font-family: 'Sloop Script', cursive;
+    /* CAMBIO A PINYON */
+    font-family: 'Pinyon Script', cursive;
     font-size: 1.1em;
     text-transform: none;
-    color: #fff; /* Un gris muy claro para el & */
+    color: #fff; 
 }
 
 .footer-date {
@@ -1682,34 +1529,31 @@ gap: 120px;
     margin-bottom: 50px;
 }
 
-/* Línea sutil separadora antes del crédito */
 .footer-divider {
     width: 30px;
     height: 1px;
-    background-color: #333; /* Gris muy oscuro, casi imperceptible */
+    background-color: #333; 
     margin-bottom: 30px;
 }
 
-/* CRÉDITO MADE BY SLIVER */
 .footer-credit {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.6rem;
     letter-spacing: 3px;
-    color: #888; /* Plateado sutil */
+    color: #888; 
     text-decoration: none;
     text-transform: uppercase;
     transition: color 0.3s ease;
 }
 
 .footer-credit:hover {
-    color: #fff; /* Se ilumina a blanco al pasar el mouse */
+    color: #fff; 
 }
 
-/* --- RESPONSIVO ESCRITORIO --- */
 @media (min-width: 900px) {
     .contact-wrapper {
-        flex-direction: row; /* Lado a lado */
-        gap: 80px;
+        flex-direction: row; 
+        gap: 60px; /* Reduje un poco el gap para que quepan los 3 perfecto */
     }
 
     .contact-vertical-line {
@@ -1717,54 +1561,48 @@ gap: 120px;
     }
     
     .contact-box-framed {
-        padding: 70px 50px; /* Más espacio en PC */
+        padding: 70px 30px; 
     }
 }
 
-/* RESPONSIVO ESCRITORIO */
 @media (min-width: 900px) {
     .info-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+        grid-template-columns: repeat(3, 1fr); 
         gap: 30px;
-        align-items: start; /* Alineación superior */
+        align-items: start; 
     }
 
     .details-flex-container {
         flex-direction: row;
         justify-content: space-around;
-        align-items: flex-start; /* Alinea los tops de las cajas de detalle */
+        align-items: flex-start; 
         padding: 0 40px;
     }
     
     .center-box {
-        margin-top: 40px; /* Pequeño ajuste visual para el icono central */
+        margin-top: 40px; 
     }
 }
 
-/* =========================================
-   DESKTOP
-   ========================================= */
-
 @media (min-width: 900px) {
 
-.info-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 50px;
-}
+    .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+    }
 
-/* 🔧 FIX: TODO EN COLUMNA Y CENTRADO */
-.striped-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    .striped-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-.striped-section-title {
-    margin-bottom: 50px;
-}
+    .striped-section-title {
+        margin-bottom: 50px;
+    }
 
-.detail-box {
-    margin: 0;
-}
+    .detail-box {
+        margin: 0;
+    }
 
 }

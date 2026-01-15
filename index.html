@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +17,7 @@
         <i class="fas fa-play"></i>
     </button>
     <audio id="bg-music" loop>
-        <source src="music.mp3" type="audio/mpeg">
+        <source src="cancion.opus" type="audio/ogg; codecs=opus">
     </audio>
 
     <button id="enter-site-floating" class="enter-floating-btn hidden-btn">
@@ -27,7 +27,7 @@
 
     <div id="opening-overlay" class="opening-overlay">
         
-        <div id="global-bg-spam" class="collage-bg-details hidden-bg">
+        <!-- <div id="global-bg-spam" class="collage-bg-details hidden-bg">
             <img src="img/intro-detail.webp" alt="" class="bg-detail-img pos-1">
             <img src="img/intro-detail2.webp" alt="" class="bg-detail-img pos-2">
             <img src="img/intro-detail3.webp" alt="" class="bg-detail-img pos-3">
@@ -40,7 +40,7 @@
             <img src="img/intro-detail2.webp" alt="" class="bg-detail-img pos-10">
             <img src="img/intro-detail4.webp" alt="" class="bg-detail-img pos-11">
             <img src="img/intro-detail3.webp" alt="" class="bg-detail-img pos-12">
-        </div>
+        </div> -->
 
         <div class="vertical-layout">
             
@@ -68,22 +68,22 @@
 
                 <div class="collage-row row-tickets slide-in delay-1">
                     <div class="ticket-item ticket-1">
-                        <img src="img/dresscode_ticket.png" alt="Dress Code" class="ticket-img shadow-hard">
+                        <img src="img/dresscode-ticket.webp" alt="Dress Code" class="ticket-img shadow-hard">
                     </div>
                     <div class="ticket-item ticket-2">
-                        <img src="img/elcielo_ticket.png" alt="El Cielo" class="ticket-img shadow-hard">
+                        <img src="img/elcielo-ticket.webp" alt="El Cielo" class="ticket-img shadow-hard">
                     </div>
                     <div class="ticket-item ticket-3">
-                        <img src="img/rsvp-card.png" alt="RSVP Ticket" class="ticket-img shadow-hard">
+                        <img src="img/rsvp-card.png" alt="RSVP Ticket" class="ticket-img shadow-hard" id="rsvp-ticket-trigger" style="cursor: pointer;">
                     </div>
                 </div>
 
                 <div class="collage-row row-polaroids slide-in delay-2">
                     <div class="polaroid-frame">
-                        <img src="https://images.pixieset.com/345237701/d708952a256340de3f37475e2cede8fc-large.jpeg" alt="Foto 1">
+                        <img src="https://images.pixieset.com/345237701/3999397290841d86f4f5018a16caa002-large.jpeg" alt="Foto 1">
                     </div>
                     <div class="polaroid-frame">
-                        <img src="https://images.pixieset.com/345237701/578d088d241a7e510e74e1050afbd40e-large.jpeg" alt="Foto 2">
+                        <img src="https://images.pixieset.com/345237701/589b448ce176097af3e3308866c58795-large.jpeg" alt="Foto 2">
                     </div>
                     <div class="polaroid-frame">
                         <img src="https://images.pixieset.com/345237701/b93a2fc56074ddcb184f906ffb1776d7-large.jpeg" alt="Foto 3">
@@ -126,7 +126,7 @@
                     </div>
                     <div class="framed-text-content fade-in-up">
                         <h2 class="script-date-full">20 de Junio en</h2>
-                        <h3 class="serif-location">EL CIELO</h3>
+                        <h3 class="serif-location">Valle de Guadalupe</h3>
                         <p class="small-year">2026</p>
                     </div>
                 </div>
@@ -183,32 +183,32 @@
                     <div class="itinerary-item">
                         <img src="img/ceremonia-icon.png" alt="Ceremonia" class="itinerary-icon">
                         <h3 class="itinerary-name">Ceremonia</h3>
-                        <p class="itinerary-time">1:30 pm</p>
+                        <p class="itinerary-time">1:00 pm</p>
                     </div>
                     <div class="itinerary-item">
                         <img src="img/coctel-icon.png" alt="Coctel" class="itinerary-icon">
                         <h3 class="itinerary-name">Coctel</h3>
-                        <p class="itinerary-time">3:30 pm</p>
+                        <p class="itinerary-time">3:00 pm</p>
                     </div>
                     <div class="itinerary-item">
                         <img src="img/cena-icon.png" alt="Cena" class="itinerary-icon">
                         <h3 class="itinerary-name">Cena</h3>
-                        <p class="itinerary-time">TBD</p>
+                        <p class="itinerary-time">4:30 pm</p>
                     </div>
                     <div class="itinerary-item">
-                        <img src="img/pastel-icon.png" alt="Pastel" class="itinerary-icon">
-                        <h3 class="itinerary-name">Pastel</h3>
-                        <p class="itinerary-time">TBD</p>
+                        <img src="img/bienvenida-icon.png" alt="Bienvenida" class="itinerary-icon">
+                        <h3 class="itinerary-name">Bienvenida</h3>
+                        <p class="itinerary-time">6:30 pm</p>
                     </div>
                     <div class="itinerary-item">
                         <img src="img/baile-icon.png" alt="Baile" class="itinerary-icon">
                         <h3 class="itinerary-name">Baile</h3>
-                        <p class="itinerary-time">TBD</p>
+                        <p class="itinerary-time">7:30 pm</p>
                     </div>
                     <div class="itinerary-item">
                         <img src="img/despedida-icon.png" alt="Despedida" class="itinerary-icon">
                         <h3 class="itinerary-name">Despedida</h3>
-                        <p class="itinerary-time">TBD</p>
+                        <p class="itinerary-time">12:00 am</p>
                     </div>
                 </div>
             </div>
@@ -271,7 +271,7 @@
                         <h3>Código de Vestimenta</h3>
                         <p>Nos encantaría verlos lucir sus mejores galas para celebrar con nosotros. El código es:</p>
                         
-                        <p class="cursive-detail">Formal & Black Tie</p>
+                        <p class="cursive-detail">Formal / Elegante</p>
                         
                         <p style="font-size: 0.9rem; margin-top: 10px; font-weight: 500;">
                             Les pedimos amablemente evitar el color blanco y tonos claros.
@@ -391,10 +391,19 @@
                             <h3 class="contact-type">Email</h3>
                             <a href="mailto:thenavacanos27@gmail.com" class="contact-link">THENAVACANOS27@gmail.com</a>
                         </div>
+
                         <div class="contact-vertical-line"></div>
+
                         <div class="contact-item">
                             <h3 class="contact-type">Teléfono</h3>
-                            <a href="tel:+526634878479" class="contact-link">+52 (663) 487 8479</a>
+                            <a href="tel:+526634878479" class="contact-link">+52 (663) 4878479</a>
+                        </div>
+
+                        <div class="contact-vertical-line"></div>
+
+                        <div class="contact-item">
+                            <h3 class="contact-type">Instagram</h3>
+                            <a href="https://www.instagram.com/the.navacanos/" target="_blank" class="contact-link">@the.navacanos</a>
                         </div>
                     </div>
                 </div>
